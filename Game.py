@@ -87,6 +87,7 @@ class Game:
             self.switch_players()
 
     def mouse_clicked(self):
+        print(self.cursor.gety(), self.cursor.getx())
         if self.gameOver is False and self.menuFlag is False:
             if self.gui.are_buttons_hovered(self.cursor.gety()):
                 col = int(math.floor(self.cursor.getx() / self.gui.get_size()))
