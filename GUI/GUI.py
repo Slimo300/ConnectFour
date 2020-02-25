@@ -24,7 +24,7 @@ class GUI:
         pygame.init()
         self.options = Options(size, columns, rows)
         self.buttons = Buttons(size, columns, rows)
-        self.textWindow = TextWindow(size/2, columns, rows)
+        self.textWindow = TextWindow(size, columns, rows)
         self.gui_board = GUIBoard(size, columns, rows)
         self.screen = Screen(size, columns, rows)
         self.draw_gui(board)

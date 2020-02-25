@@ -6,6 +6,7 @@ class TextWindow(GUIItem):
 
     def __init__(self, size, columns, rows):
         super().__init__(size, columns, rows)
+        print(size, rows, columns)
 
     def next_move_message(self, screen, player):
         self.message_display("Tura gracza " + str(player), self.colors[player], screen)
