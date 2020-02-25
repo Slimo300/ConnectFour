@@ -1,10 +1,10 @@
 import sys
 import random
 import math
+import pygame
 
 from Cursor import Cursor
 from Player import Player
-from GUIBoard import *
 from Rules.Rules import Rules
 from Board import Board
 from Rules.RowsColumnsOnly import RowsColumnsOnly

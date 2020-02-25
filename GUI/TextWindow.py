@@ -23,6 +23,6 @@ class TextWindow(GUIItem):
         pygame.draw.rect(screen, (0, 0, 0), (0, 8 * self.size, self.columns * self.size, self.size / 2))
         down_text = pygame.font.Font('freesansbold.ttf', int(self.size / 2 - self.size / 10))
         text_surf, text_rect = self.text_objects(text, down_text, color)
-        text_rect.center = ((self.columns * self.size / 2), int(self.size * (self.size + (9 / 4))))
+        text_rect.center = ((self.columns * self.size / 2), int(self.size * (self.rows + (9 / 4))))
         screen.blit(text_surf, text_rect)
         print("JO PISZO")
