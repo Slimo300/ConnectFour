@@ -7,6 +7,12 @@ class Board:
         self.columns = columns
         self.board = np.zeros((rows, columns))
 
+    def get_columns(self):
+        return self.columns
+
+    def get_rows(self):
+        return self.rows
+
     def get(self, row, column):
         return self.board[row][column]
 

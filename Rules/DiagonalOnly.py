@@ -1,4 +1,4 @@
-import Rules
+from Rules import Rules
 
 
 class DiagonalOnly(Rules.Rules):

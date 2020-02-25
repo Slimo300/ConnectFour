@@ -1,18 +1,11 @@
-import pygame
-
-from GUIBoard import C4_SIZE, C4_ROWS, C4_COLUMNS, ORANGE, RED, YELLOW
+from GUI.GUIItem import *
 
 
-class TextWindow:
+class TextWindow(GUIItem):
     colors = [ORANGE, RED, YELLOW]
 
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def text_objects(text, font, color):
-        text_surface = font.render(text, True, color)
-        return text_surface, text_surface.get_rect()
+    def __init__(self, size, columns, rows):
+        super().__init__(size, columns, rows)
 
     def next_move_message(self, screen, player):
         self.message_display("Tura gracza " + str(player), self.colors[player], screen)
@@ -27,8 +20,9 @@ class TextWindow:
         self.message_display("REMIS", self.colors[0], screen)
 
     def message_display(self, text, color, screen):
-        pygame.draw.rect(screen, (0, 0, 0), (0, 8 * C4_SIZE, C4_COLUMNS * C4_SIZE, C4_SIZE / 2))
-        down_text = pygame.font.Font('freesansbold.ttf', int(C4_SIZE / 2 - C4_SIZE / 10))
+        pygame.draw.rect(screen, (0, 0, 0), (0, 8 * self.size, self.columns * self.size, self.size / 2))
+        down_text = pygame.font.Font('freesansbold.ttf', int(self.size / 2 - self.size / 10))
         text_surf, text_rect = self.text_objects(text, down_text, color)
-        text_rect.center = ((C4_COLUMNS * C4_SIZE / 2), int(C4_SIZE * (C4_ROWS + (9 / 4))))
+        text_rect.center = ((self.columns * self.size / 2), int(self.size * (self.size + (9 / 4))))
         screen.blit(text_surf, text_rect)
+        print("JO PISZO")

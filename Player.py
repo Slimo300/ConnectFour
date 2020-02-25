@@ -10,4 +10,4 @@ class Player:
         return self.type
 
     def make_move(self, board, col):
-        return board.piece_dropped(col, self.id)
+        return board.drop_piece(col, self.id)
