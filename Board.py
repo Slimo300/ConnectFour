@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 
 
 class Board:
@@ -43,3 +44,16 @@ class Board:
             if self.board[self.rows-1][c] == 0:
                 return False
         return True
+
+    # AI needed functions
+    def get_valid_locations(self):
+        valid_locations = []
+        for c in range(self.columns):
+            if self.is_valid_location(c):
+                valid_locations.append(c)
+        return valid_locations
+
+    def get_copy(self):
+        return copy.deepcopy(self)
+
+

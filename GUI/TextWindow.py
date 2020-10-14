@@ -6,7 +6,6 @@ class TextWindow(GUIItem):
 
     def __init__(self, size, columns, rows):
         super().__init__(size, columns, rows)
-        print(size, rows, columns)
 
     def next_move_message(self, screen, player):
         self.message_display("Tura gracza " + str(player), self.colors[player], screen)
@@ -26,4 +25,3 @@ class TextWindow(GUIItem):
         text_surf, text_rect = self.text_objects(text, down_text, color)
         text_rect.center = (int(self.columns * self.size / 2), int(self.size * (self.rows + (9 / 4))))
         screen.blit(text_surf, text_rect)
-        print("JO PISZO")

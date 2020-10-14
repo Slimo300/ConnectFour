@@ -21,10 +21,10 @@ class Game:
     def __init__(self):
         self.board = Board(ROWS, COLUMNS)
         self.gui = GUI(ROWS, COLUMNS, SIZE, self.board)
+        self.rules = Rules()
         self.cursor = Cursor()
         self.player1 = Player(1)
-        self.player2 = AIPlayer(2)
-        self.rules = Rules()
+        self.player2 = AIPlayer(2, self.rules, self.board)
         self.currentPlayer = self.assign_player()
         self.gameOver = False
         self.menuFlag = False
@@ -85,9 +85,9 @@ class Game:
             self.gameOver = True
         else:
             self.switch_players()
+        #print(self.board.get_board())
 
     def mouse_clicked(self):
-        print(self.cursor.gety(), self.cursor.getx())
         if self.gameOver is False and self.menuFlag is False:
             if self.gui.are_buttons_hovered(self.cursor.gety()):
                 col = int(math.floor(self.cursor.getx() / self.gui.get_size()))
@@ -126,7 +126,6 @@ class Game:
                         self.mouse_clicked()
                 elif self.currentPlayer.get_type() == "AI":
                     if not self.gameOver and not self.menuFlag:
-                        print("AI")
                         if self.currentPlayer.make_move(self.board, 0):
                             self.move_made()
                         else:
